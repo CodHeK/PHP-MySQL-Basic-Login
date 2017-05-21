@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign Up</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>
+	<style type="text/css">
+		.class {
+			width: 500px;
+		}
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#logIn").hide();
+			$('#log').click(function() {
+				$('#signUp').fadeOut();
+				$('#logIn').fadeIn();
+			});
+		});
+	</script>
+</head>
+<body>
+	<div class="container" id="signUp">
+		<form method="POST" action="signup.php">
+			<div class="form-group">
+				<h1>Sign Up!</h1>
+				<hr>
+				<input type="name" name="name" placeholder="Enter your name..." class="form-control class"><br>
+				<input type="email" name="email" placeholder="Enter email..." class="form-control class"><br>
+				<input type="password" name="password" placeholder="Enter password..." class="form-control class"><br>
+				<input type="submit" name="signup" value="SIGN UP!" class="btn btn-primary">
+			</div>
+		</form>
+		<button class="btn btn-success" id="log">LOG IN !</button>
+	</div>
+	<div class="container" id="logIn">
+		<form method="POST" action="login.php">
+			<div class="form-group">
+				<h1>Log In!</h1>
+				<hr>
+				<input type="name" name="name" placeholder="Enter your name..." class="form-control class"><br>
+				<input type="password" name="password" placeholder="Enter password..." class="form-control class"><br>
+				<input type="submit" name="login" value="LOG IN!" class="btn btn-success">
+			</div>
+		</form>
+	</div>
+</body>
+</html>
