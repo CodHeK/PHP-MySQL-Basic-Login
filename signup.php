@@ -9,10 +9,12 @@
 	$name = $_POST['name'];
 	$email = $_POST['email'];
 	$password = $_POST['password'];
+	$rpassword = $_POST['rpassword'];
 
 	if(!empty($name)) {
 		if(!empty($email)) {
-			if(!empty($password)) {
+			if(!empty($password) && !empty($rpassword)) {
+				if($password == $rpassword) {
 				$dbc = mysqli_connect('localhost', 'root', '', 'login')
 					or die('Error conencting to DataBase1');
 
@@ -25,17 +27,21 @@
 
 				echo '<div class="container">', '<br>';
 				echo '<h1>ThankYou ', $name, ' For Submitting Form</h1>', '<br>';
-				echo '<a href="index.html" class="btn btn-primary" style="text-decoration: none;">BACK TO SIGNUP!</a>', '<br>';
+				echo '<a href="index.html" class="btn btn-primary" style="text-decoration: none;">LOG IN!</a>', '<br>';
 				echo '</div>', '<br>'; 
 
 			}
 			else {
-				echo 'Enter Your Password';
+				echo 'Make Sure both passwords are similar';
 			}
 		}
 		else {
-			echo 'Enter Your Email';
+			echo 'Enter Your Password';
 		}
+	}
+	else {
+		echo 'Enter Your Email';
+	}
 	}
 	else {
 		echo 'Enter Your Name';
